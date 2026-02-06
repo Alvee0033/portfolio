@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-sans: var(--font-space-grotesk), sans-serif;
+    --font-mono: var(--font-fira-code), monospace;
+    --font-cyber: 'Orbitron', sans-serif;
+
+    --color-neon-cyan: #00ffaa;
+    --color-neon-blue: #2563eb;
+    --color-dark-bg: #020617;
+    --color-slate-900: #0f172a;
+
+    --animate-neon-pulse: neon-pulse 2s infinite alternate;
+    --animate-float: float 8s ease-in-out infinite;
+    --animate-pulse-glow: pulse-glow 3s infinite;
+
+    @keyframes neon-pulse {
+        0% {
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #00ffaa,
+                0 0 40px #00ffaa,
+                0 0 80px #00ffaa;
+        }
+
+        100% {
+            text-shadow:
+                0 0 2px #fff,
+                0 0 5px #fff,
+                0 0 15px #00ffaa,
+                0 0 30px #00ffaa,
+                0 0 60px #00ffaa;
+        }
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    @keyframes pulse-glow {
+        0% {
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(74, 222, 128, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+        }
+    }
+}
+
+:root {
+    --background: #020617;
+    --foreground: #ffffff;
+}
+
+body {
+    background: #020617;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.bg-horizon-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -20;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(20, 184, 166, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 15% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.bg-cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    pointer-events: none;
+}
+
+.hero-text-glow {
+    font-family: var(--font-cyber);
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #00ffaa,
+        0 0 40px #00ffaa,
+        0 0 80px #00ffaa;
+    animation: neon-pulse 2s infinite alternate;
+    will-change: text-shadow;
+}
+
+@keyframes wiggle-3d {
+    0% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
+    25% { transform: perspective(1000px) rotateX(2deg) rotateY(-2deg); }
+    50% { transform: perspective(1000px) rotateX(-2deg) rotateY(2deg); }
+    75% { transform: perspective(1000px) rotateX(2deg) rotateY(2deg); }
+    100% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
+}
+
+.auto-wiggle {
+    animation: wiggle-3d 6s ease-in-out infinite;
+}
+
+.glass-card-cosmic {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 1rem;
+}
+
+.section-title-glow {
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+.cyber-title {
+    background: linear-gradient(90deg, #2563eb 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.1em;
+}
+
+/* Stunning Premium Effects */
+.text-gradient-premium {
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-glow-blob {
+    filter: blur(120px);
+    opacity: 0.5;
+    mix-blend-mode: screen;
+    animation: blob-pulse 15s infinite alternate;
+}
+
+@keyframes blob-pulse {
+    0% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.2) translate(5%, 5%); }
+    100% { transform: scale(0.9) translate(-5%, -2%); }
+}
+
+.glass-premium {
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 10px 40px -10px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.btn-premium {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.btn-premium:hover::before {
+    left: 100%;
+}
+
+.badge-float {
+    animation: badge-float 4s ease-in-out infinite;
+}
+
+@keyframes badge-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.perspective-text {
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+.project-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(37, 99, 235, 0.2);
+}
+
+.nav-glass {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.floating-badge {
+    animation: float 8s ease-in-out infinite;
+    will-change: transform;
+}
+
+.ai-active-pulse {
+    animation: pulse-glow 3s infinite;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+}
